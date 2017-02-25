@@ -1,0 +1,186 @@
+<ul id="donation-options" class="nav-pills nav-justified">
+    <li role="presentation" ng-repeat="tab in items">
+        <a alt="{{tab.label}}" name="{{tab.name}}" class="{{tab.name}}-logo">
+
+
+            <!--<img class="liqpay-logo" ng-if="tab.name === 'liqpay-deprecated'" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSWn7wWZ6guHiRiOxNZA3ZLtdXmixUOHYyf1qXfIepNnkSMOkWpvU7PIw" />-->
+        </a>
+    </li>
+</ul>
+<div id="donation-form"></div>
+
+
+<script type="text/ng-template" id="privatbank-form">
+    <div id="privatbank" class="send-form">
+        PRIVATBANK.UA
+        <div class="donation-details" translate="donation.description"></div>
+        <div class="privatbank-info">
+            <p translate="donation.privatbank.org"></p>
+            <p translate="donation.privatbank.edrpou"></p>
+            <p translate="about.address"></p>
+            <p translate="donation.privatbank.rr"></p>
+            <p translate="donation.privatbank.card"></p>
+            <p translate="donation.privatbank.mfo"></p>
+        </div>
+        <div class="thank">
+            <p data-ng-repeat="t in thank" translate="{{t}}">
+            </p>
+        </div>
+        <form name="pbForm" accept-charset="utf-8" action="https://api.privatbank.ua:9083/p24api/ishop" method="post" target="_blank">
+            <!--<input type="hidden" name="amt" value="0" class="form-control" id="donation-amount" placeholder="{{ 'donation.placeholder' | translate }}" />-->
+            <div class="form-group">
+                <input type="number" ng-model="amount"  integer="" required min="1" name="amt" class="form-control" id="donation-amount" placeholder="{{ 'donation.placeholder' | translate }}">
+                <div class="donation-form-line"></div>
+                <br />
+                <span ng-show="pbForm.amount.$error.min">Введена не коректна сума</span>
+                <span ng-show="pbForm.amount.$error.integer">Введена не коректна сума</span>
+            </div>
+            <input type="hidden" name="ccy" value="UAH" />
+            <input type="hidden" name="merchant" value="107046" />
+            <input type="hidden" name="order" value="{{privatbankOrder}}" />
+            <input type="hidden" name="details" value="Добровільний внесок на підтримку незалежного проекту Фредра.61" />
+            <input type="hidden" name="ext_details" value="" />
+            <input type="hidden" name="pay_way" value="privat24" />
+            <input type="hidden" name="return_url" value="http://fredra.org/" />
+            <input type="hidden" name="server_url" value="http://fredra.org/" />
+            <input type="submit" ng-disabled="pbForm.$invalid" value="{{ 'home.supportLink' | translate }}"/>
+            <!--<button type="submit" style="border: 0px; background: none;"><img src="https://cb.privatbank.ua/p24/img/buttons/api_logo_1.gif" border="0" /></button>-->
+        </form>
+    </div>
+</script>
+
+<script type="text/ng-template" id="liqpay-form">
+    <div id="liqpay" class="send-form">
+        LIQPAY.UA
+        <div class="donation-details" translate="donation.description"></div>
+        <div class="privatbank-info">
+            <p translate="donation.privatbank.org"></p>
+            <p translate="donation.privatbank.edrpou"></p>
+            <p translate="about.address"></p>
+            <p translate="donation.privatbank.rr"></p>
+            <p translate="donation.privatbank.card"></p>
+            <p translate="donation.privatbank.mfo"></p>
+        </div>
+        <div class="thank">
+            <p data-ng-repeat="t in thank" translate="{{t}}">
+            </p>
+        </div>
+
+        <form>
+            <!--<input type="hidden" name="amt" value="0" class="form-control" id="donation-amount" placeholder="{{ 'donation.placeholder' | translate }}" />-->
+            <div class="form-group">
+                <input type="number" ng-model="amount"  integer="" required min="1" name="amt" class="form-control" id="donation-amount" placeholder="{{ 'donation.placeholder' | translate }}">
+                <div class="donation-form-line"></div>
+                <br />
+                <span ng-show="pbForm.amount.$error.min">Введена не коректна сума</span>
+                <span ng-show="pbForm.amount.$error.integer">Введена не коректна сума</span>
+            </div>
+            <input type="submit" ng-disabled="pbForm.$invalid" value="{{ 'home.supportLink' | translate }}"/>
+            <!--<button type="submit" style="border: 0px; background: none;"><img src="https://cb.privatbank.ua/p24/img/buttons/api_logo_1.gif" border="0" /></button>-->
+        </form>
+
+
+        <!--<form target="_blank" method="POST" accept-charset="utf-8" action="https://www.liqpay.com/api/checkout">-->
+            <!--<input type="hidden" name="data" value="eyJ2ZXJzaW9uIjozLCJwdWJsaWNfa2V5IjoiaTM1NTE2NDkwNDMxIiwiYW1vdW50IjoiNSIsImN1cnJlbmN5IjoiVUFIIiwiZGVzY3JpcHRpb24iOiLQlNC+0LHRgNC+0LLRltC70YzQvdC40Lkg0LLQvdC10YHQvtC6INC90LAg0L/RltC00YLRgNC40LzQutGDINC90LXQt9Cw0LvQtdC20L3QvtCz0L4g0L/RgNC+0LXQutGC0YMg0KTRgNC10LTRgNCwLjYxIiwidHlwZSI6ImRvbmF0ZSIsImxhbmd1YWdlIjoiZW4iLCJwYXlfd2F5IjoiY2FyZCxsaXFwYXksZGVsYXllZCxpbnZvaWNlLHByaXZhdDI0In0=" />-->
+            <!--<input type="hidden" name="signature" value="YC3c4WWcfg6KSwMbebdXNsW1mME=" />-->
+            <!--<input type="submit" value="{{ 'home.supportLink' | translate }}"/>-->
+            <!--&lt;!&ndash;<input type="image" src="//static.liqpay.com/buttons/d1en.png" name="btn_text" />&ndash;&gt;-->
+        <!--</form>-->
+
+
+        <!--<form name="pbForm" accept-charset="utf-8" action="https://api.privatbank.ua:9083/p24api/ishop" method="post" target="_blank">-->
+            <!--<!--<input type="hidden" name="amt" value="0" class="form-control" id="donation-amount" placeholder="{{ 'donation.placeholder' | translate }}" />-->
+            <!--<div class="form-group">-->
+                <!--<input type="number" ng-model="amount"  integer="" required min="1" name="amt" class="form-control" id="donation-amount" placeholder="{{ 'donation.placeholder' | translate }}">-->
+                <!--<div class="donation-form-line"></div>-->
+                <!--<br />-->
+                <!--<span ng-show="pbForm.amount.$error.min">Введена не коректна сума</span>-->
+                <!--<span ng-show="pbForm.amount.$error.integer">Введена не коректна сума</span>-->
+            <!--</div>-->
+            <!--<input type="hidden" name="ccy" value="UAH" />-->
+            <!--<input type="hidden" name="merchant" value="107046" />-->
+            <!--<input type="hidden" name="order" value="" />-->
+            <!--<input type="hidden" name="details" value="Добровільний внесок на підтримку незалежного проекту Фредра.61" />-->
+            <!--<input type="hidden" name="ext_details" value="" />-->
+            <!--<input type="hidden" name="pay_way" value="privat24" />-->
+            <!--<input type="hidden" name="return_url" value="http://fredra.org/" />-->
+            <!--<input type="hidden" name="server_url" value="http://fredra.org/" />-->
+            <!--<input type="submit" ng-disabled="pbForm.$invalid" value="{{ 'home.supportLink' | translate }}"/>-->
+            <!--<!--<button type="submit" style="border: 0px; background: none;"><img src="https://cb.privatbank.ua/p24/img/buttons/api_logo_1.gif" border="0" /></button>-->
+        <!--</form>-->
+    </div>
+</script>
+
+
+
+<!-- Templates for donation services request -->
+<script type="text/ng-template" id="privatbank-form-dep">
+    <div id="privatbank" class="send-form">
+        PRIVATBANK.UA
+        <div class="donation-details" translate="donation.description"></div>
+        <div class="privatbank-info">
+            <p translate="donation.privatbank.org"></p>
+            <p translate="donation.privatbank.edrpou"></p>
+            <p translate="about.address"></p>
+            <p translate="donation.privatbank.rr"></p>
+            <p translate="donation.privatbank.card"></p>
+            <p translate="donation.privatbank.mfo"></p>
+        </div>
+        <div class="thank">
+            <p data-ng-repeat="t in thank" translate="{{t}}">
+            </p>
+        </div>
+        <form name="pbForm" method="POST" accept-charset="utf-8" action="https://www.liqpay.com/api/pay">
+            <input type="hidden" name="public_key" value="{{pbmerchant}}"/>
+            <div class="form-group">
+                <input type="number" ng-model="amount" integer="" required min="1" name="amount" class="form-control" id="donation-amount" placeholder="{{ 'donation.placeholder' | translate }}">
+                <div class="donation-form-line"></div>
+                <br />
+                <span ng-show="pbForm.amount.$error.min">Введена не коректна сума</span>
+                <span ng-show="pbForm.amount.$error.integer">Введена не коректна сума</span>
+            </div>
+            <input type="hidden" name="currency" value="UAH"/>
+            <input type="hidden" name="description" value="{{pbdetails}}"/>
+            <input type="hidden" name="type" value="buy"/>
+            <input type="hidden" name="pay_way" value="card,delayed"/>
+            <input type="hidden" name="language" value="ua"/>
+            <input type="submit" ng-disabled="pbForm.$invalid" value="{{ 'home.supportLink' | translate }}"/>
+        </form>
+    </div>
+</script>
+
+<script type="text/ng-template" id="moneyua-form">
+    <div id="moneyua" class="send-form">
+        <span>MONEY.UA</span>
+
+        <div class="donation-details" translate="donation.description"></div>
+        <div class="privatbank-info">
+            <p translate="donation.privatbank.org"></p>
+            <p translate="donation.privatbank.edrpou"></p>
+            <p translate="about.address"></p>
+            <p translate="donation.privatbank.rr"></p>
+            <p translate="donation.privatbank.card"></p>
+            <p translate="donation.privatbank.mfo"></p>
+        </div>
+        <div class="thank">
+            <p data-ng-repeat="t in thank" translate="{{t}}">
+            </p>
+        </div>
+        <form target="_blank" name="muaForm" method="POST" action="http://money.ua/prosto/" accept-charset="windows-1251">
+            <div class="form-group">
+                <input type="number" ng-model="amount" integer="" required min="1" name="amount" class="form-control" id="donation-amount" placeholder="{{ 'donation.placeholder' | translate }}">
+                <div class="donation-form-line"></div>
+                <br />
+                <span ng-show="muaForm.amount.$error.min">Введена не коректна сума</span>
+                <span ng-show="muaForm.amount.$error.integer">Введена не коректна сума</span>
+            </div>
+            <input type="hidden" name="step" value="{{mustep}}">
+            <input type="hidden" name="okpo" value="{{muokpo}}">
+            <input type="hidden" name="acc" value="{{muacc}}">
+            <input type="hidden" name="name" value="{{muname}}">
+            <input type="hidden" name="mfo" value="{{mumfo}}">
+            <input type="hidden" name="info" value="{{muinfo}}">
+            <input type="submit" ng-disabled="muaForm.$invalid" value="{{ 'home.supportLink' | translate }}"/>
+        </form>
+    </div>
+</script>

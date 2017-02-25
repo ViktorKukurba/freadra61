@@ -1,0 +1,12 @@
+<div class="label-container col-xs-12 col-sm-12 col-md-12 col-lg-12" interval="textInterval">
+    <div class="carousel-label" ng-class="{active: $index==0}" ng-repeat="mes in messages">
+        <div>
+            <p translate="{{mes}}"></p>
+        </div>
+    </div>
+</div>
+<div class="label-container-indicators">
+    <ol class="carousel-indicators" ng-show="messages.length > 1">
+        <li data-value="{{$index}}" ng-repeat="mes in messages track by $index" ng-class="{active: $index==0}"></li>
+    </ol>
+</div>

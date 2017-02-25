@@ -1,0 +1,10 @@
+<svg ng-if="tab.name === 'privatbank'" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 63.8 63.8" enable-background="new 0 0 63.8 63.8" xml:space="preserve">
+                <g>
+                    <g>
+                        <path fill="#5BB347" d="M63.8,63.8h-30v-6.6c0-15-12.2-27.3-27.3-27.3H0V0h63.8V63.8z M46.6,50.6h4V13.3H13.3v4
+                            C30.3,20.1,43.8,33.6,46.6,50.6z"/>
+                    </g>
+                    <rect x="0" y="39.5" width="24.4" height="24.4"/>
+                </g>
+            </svg>

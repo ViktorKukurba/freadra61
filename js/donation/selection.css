@@ -1,0 +1,19 @@
+#donation-options {
+  max-width: 400px;
+  margin: auto;
+  list-style: none;
+  cursor: pointer;
+  padding-left: 0;
+}
+#donation-options li {
+  display: inline-block;
+  border-radius: 4px;
+  width: auto;
+  margin: 0px 20px;
+}
+#donation-options li a {
+  display: block;
+}
+#donation-options a.active {
+  background-color: none;
+}

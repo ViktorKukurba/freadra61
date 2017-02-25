@@ -1,0 +1,82 @@
+nav.navbar.fredra-bottom {
+  position: static;
+  margin-top: -50px;
+  li {
+    display: none;
+  }
+  li:first-child {
+    display: block;
+  }
+}
+
+.customize-support {
+  #fredra-nav {
+    top: 32px;
+  }
+}
+
+#fredra-nav {
+  background-image: none;
+  background: #000000;
+  opacity: 0.7;
+  ul {
+    padding-left: 3%;
+    a {
+      background: transparent;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+  li:first-child {
+    font-size: 22px;
+    font-weight: bold;
+
+    a.active {
+      background: none;
+    }
+  }
+}
+
+.lang {
+  float: right;
+  padding-right: 5%;
+  line-height: 50px;
+
+  a {
+    color: #DEDEDE;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  a.active {
+    color: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .customize-support #fredra-nav {
+    top: 0;
+  }
+  #fredra-nav {
+    height: 50px;
+    .collapse {
+      display: block;
+      margin: 0;
+      ul {
+        float: left;
+        li {
+          display: none;
+        }
+        li:first-child {
+          display: inline-block;
+          font-size: 20px;
+          font-weight: 600;
+          a {
+            margin-top: -4px;
+          }
+        }
+      }
+    }
+  }
+}

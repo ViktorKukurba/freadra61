@@ -1,0 +1,26 @@
+<div id="home" ui-view="home"></div>
+<nav id="fredra-nav" class="navbar navbar-inverse navbar-fixed-top fredra-bottom" role="navigation">
+    <div class="container">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav" id="page-navigation" ng-controller="NavigationCtrl" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                <li role="presentation" itemprop="name"
+                ng-class="{active: $index==0}"
+                ng-repeat="tab in items">
+                <a href="#{{tab.target}}" translate="{{tab.label}}" prevent-default="" scroll-to="{{tab.target}}" itemprop="url">
+                </a>
+                </li>
+            </ul>
+            <div class="lang">
+                <a href="/en/" data-value="en">EN</a>
+                <a href="/" data-value="ua">UA</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div id="donation" ui-view="donation"></div>
+<div id="about">
+    <div class="about-wrapper">
+        <div ui-view="about"></div>
+    </div>
+    <div ui-view="contacts"></div>
+</div>

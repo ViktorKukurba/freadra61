@@ -1,0 +1,270 @@
+.carousel-indicators {
+  top: 31%;
+  height: 30px;
+}
+
+.carousel-indicators .active {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ffffff;
+  opacity: .8;
+  border-radius: 15px;
+  margin: 1px;
+}
+
+.carousel-indicators li {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  margin: 3px;
+}
+
+.carousel-inner {
+  background-color: #000000;
+  height: 100vh;
+  .item {
+    height: 100vh;
+    text-align: center;
+    white-space: nowrap;
+    content: 'viewport-units-buggyfill; height: 100vh;';
+
+    img {
+      display: inline-block;
+      min-height: 95vh;
+      min-width: 100%;
+      vertical-align: middle;
+      content: 'viewport-units-buggyfill; min-height: 98vh;';
+    }
+  }
+}
+
+.carousel-control {
+  span.glyphicon {
+    display:none;
+  }
+}
+
+.carousel-inner:not(.slide) {
+  .item {
+    transition-property: opacity;
+  }
+
+  .item,
+  .active.left,
+  .active.right {
+    opacity: 0;
+  }
+
+  .active,
+  .next.left,
+  .prev.right {
+    opacity: 1;
+  }
+
+  .next,
+  .prev,
+  .active.left,
+  .active.right {
+    left: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.carousel-control {
+//  z-index: 2;
+}
+
+//.carousel-inner .item {
+//  -webkit-transition: opacity 0.5s ease-in-out;
+//  -moz-transition: opacity 0.5s ease-in-out;
+//  -ms-transition: opacity 0.5s ease-in-out;
+//  -o-transition: opacity 0.5s ease-in-out;
+//  transition: opacity 0.5s ease-in-out;
+//  opacity:0;
+//}
+//
+//.carousel-inner .active.item {
+//  opacity:1;
+//}
+//
+//.carousel-inner .active.left,
+//.carousel-inner .active.right {
+//  left: 0;
+//  z-index: 2;
+//  opacity: 0;
+//  filter: alpha(opacity=0);
+//}
+//
+//.carousel-inner .next,
+//.carousel-inner .prev {
+//  left: 0;
+//  z-index: 1;
+//}
+//
+//.carousel-inner .carousel-control {
+//  z-index: 3;
+//}
+
+.carousel-img {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+//  background-size: 100%;
+  background-attachment:fixed;
+//  -webkit-transition: all 1s;
+//  -moz-transition: all 1s;
+//  -ms-transition: all 1s;
+//  -o-transition: all 1s;
+//  transition: all 1s;
+//  -webkit-background-size: cover;
+//  -moz-background-size: cover;
+//  -o-background-size: cover;
+//  background-size: cover;
+  /* hack to engage viewport-units-buggyfill */
+  content: 'viewport-units-buggyfill; min-height: 100vh;';
+
+}
+
+.carousel-inner .carousel-img:before {
+//  content: 'F.61';
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #000000;
+  z-index: 1001;
+  opacity: 0.5;
+  min-height: 100vh;
+  content: 'viewport-units-buggyfill; min-height: 100vh;';
+  background: #000000;
+//  -webkit-animation: mainimage linear 5s infinite; /* Chrome, Safari, Opera */
+//  animation: mymove linear 5s infinite;
+}
+
+@-webkit-keyframes mainimage {
+  0%   {opacity: 0.5;}
+  50%  {opacity: 0.7;}
+  100% {opacity: 0.5;}
+}
+
+/* Standard syntax */
+@keyframes mainimage {
+  0%   {opacity: 0.5;}
+  50%  {opacity: 0.7;}
+  100% {opacity: 0.5;}
+}
+
+@media handheld and (orientation: landscape) {
+  background-size: 180%;
+}
+
+@media (max-width: @screen-xs-max) {
+  .carousel-img {
+    background-image: url("../images/fdr_cover/768.jpg");
+    background-attachment: scroll;
+    background-size: 235%;
+  }
+}
+
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+  .carousel-img {
+    background-image: url("../images/fdr_cover/992.jpg");
+  }
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+  .carousel-img {
+    background-image: url("../images/fdr_cover/1200.jpg");
+  }
+}
+@media (min-width: @screen-lg-min) and (max-width: @screen-xl-min) {
+  .carousel-img {
+    background-image: url("../images/fdr_cover/1600.jpg");
+  }
+}
+
+@media (min-width: @screen-xl-min) {
+  .carousel-img {
+    background-image: url("../images/fdr_cover/2040.jpg");
+  }
+}
+
+/**
+ * iPad with portrait orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+  .foo {
+    height: 1024px;
+  }
+
+  .carousel-inner {
+    .item {
+      height: 1024px;
+      img {
+        min-height: 1012vh;
+      }
+    }
+  }
+
+  .carousel-img {
+    min-height: 1024px;
+  }
+
+//  .carousel-inner>div>div:before {
+//    min-height: 1024px;
+//  }
+}
+
+/**
+ * iPad with landscape orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+  .foo {
+    height: 768px;
+  }
+
+  .carousel-inner {
+    .item {
+      height: 768px;
+      img {
+        min-height: 760px;
+      }
+    }
+  }
+
+  .carousel-img {
+    min-height: 760px;
+  }
+
+  .carousel-inner>div>div:after {
+    min-height: 768px;
+  }
+}
+
+/**
+ * iPhone 5
+ * You can also target devices with aspect ratio.
+ */
+@media screen and (device-aspect-ratio: 40/71) {
+  .foo {
+    height: 500px;
+  }
+
+  .carousel-inner {
+    .item {
+      height: 500px;
+      img {
+        min-height: 500px;
+      }
+    }
+  }
+
+  .carousel-img {
+    min-height: 500px;
+  }
+
+//  .carousel-inner>div>div:before {
+//    min-height: 500px;
+//  }
+}

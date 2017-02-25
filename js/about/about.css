@@ -1,0 +1,30 @@
+.social {
+  text-align: center;
+}
+.social a img {
+  display: inline-block;
+  background-size: 100% 100%;
+  margin: 0 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.social p {
+  padding: 20px;
+  font-size: 20px;
+}
+.about-message {
+  background: black;
+  opacity: 0.85;
+  padding: 50px;
+  margin: auto 0;
+  position: absolute;
+  top: 20px;
+  left: 95px;
+  bottom: 20px;
+  right: 0;
+  max-width: 650px;
+  z-index: 1;
+  font-weight: 600;
+  font-size: 12px;
+  color: #DEDEDE;
+}
