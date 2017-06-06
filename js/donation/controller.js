@@ -40,13 +40,13 @@ define([
 
       $('#donation').delegate('#liqpay form input[type="submit"]', 'click', function() {
         $.ajax({
-          url: require.toUrl('../php/liqpay-proxy.php'),
+          url: require.toUrl('/wp-json/liqpay/form'),
+          // url: require.toUrl('../php/liqpay-proxy.php'),
           type: 'POST',
           dataType: 'html',
           data: {amount: $('#liqpay form input[type="number"]').val()},
           success: function(form2) {
-            var f = $('<div></div>').append(form2);//.submit();
-//            f.find('form').attr('target', '_blank');
+            var f = $(document.body).append(form2);
             f.find('form').submit();
           }
         });

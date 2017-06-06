@@ -20,6 +20,8 @@ remove_filter('template_redirect', 'redirect_canonical');
 add_theme_support('post-thumbnails');
 add_theme_support('widgets');
 
+require get_parent_theme_file_path( '/php/liqpay-proxy.php' );
+
 /**
  * Customizer additions.
  */
